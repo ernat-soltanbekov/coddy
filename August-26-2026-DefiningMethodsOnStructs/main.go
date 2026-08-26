@@ -51,6 +51,4 @@ func main() {
     // TODO: Создайте экземпляр Book и вызовите методы
     book.displayInfo()
     book.getDescription()
-
-
 }
