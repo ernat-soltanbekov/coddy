@@ -16,7 +16,7 @@ func (t Sensor) displayReading() {
     fmt.Printf("Sensor %s: %.1f°C\n", t.ID, t.Temperature)
 }
 // TODO: Определите здесь ваш метод adjustTemperature с получателем значения (value receiver)
-func (t Sensor) adgustTemperature (adjustment float64) {
+func (t Sensor) adjustTemperature (adjustment float64) {
     t.Temperature += adjustment
     fmt.Printf("Adjusted reading: %.1f°C\n", t.Temperature)
 }
@@ -41,6 +41,6 @@ func main() {
         Temperature: temperature,
     }
     sensor.displayReading()
-    sensor.adgustTemperature(adjustment)
+    sensor.adjustTemperature(adjustment)
     sensor.displayReading()
 }
