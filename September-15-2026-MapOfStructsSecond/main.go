@@ -41,6 +41,9 @@ func main() {
 	// TODO: Выведите всех студентов в алфавитном порядке по имени
 	sorted := maps.Keys(student)
     sort.Strings(sorted)
+    for print := 0; print < len(sorted); print++ {
+        fmt.Printf("%s: ID %d, Grade %s\n", sorted[print], student[sorted[print]].ID, student[sorted[print]].Grade)
+    }
 	// TODO: Рассчитайте и выведите статистику оценок
 	
 	// TODO: Найдите и выведите студента с самым высоким ID
