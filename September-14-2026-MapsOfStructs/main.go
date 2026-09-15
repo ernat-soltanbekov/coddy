@@ -2,10 +2,8 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"strings"
 	"strconv"
-	"bufio"
 	"sort"
 )
 
@@ -15,6 +13,11 @@ func main() {
 	var studentData string
 	fmt.Scanln(&numStudentsStr)
 	fmt.Scanln(&studentData)
+    numStudents, err := strconv.Atoi(numStudentsStr)
+    if err != nil {
+        fmt.Printf("Invalid digit: %v\n", err)
+        return
+    }
 	
 	// TODO: Определите структуру Student здесь
 	type Student struct {
@@ -24,9 +27,6 @@ func main() {
 	// TODO: Создайте карту (map) для хранения студентов (имя как ключ, структура Student как значение)
 	student := map[string]Student{}
 	// TODO: Разберите данные о студентах и заполните карту
-	//scanner := bufio.NewScanner(os.Stdin)
-	//scanner.Scan()
-	//scanInput := scanner.Text()
 	divide := strings.Split(studentData, ",")
 	for count := 0; count < len(divide); count++ {
 		notes := strings.Split(divide[count], ":")
@@ -52,7 +52,22 @@ func main() {
 	for i := 0; i < len(names); i++ {
 		grades[student[names[i]].Grade]++
 	}
+    	gradeOrder := []string{"A", "B", "C", "D", "F"}
+    for i := 0; i < len(gradeOrder); i ++ {
+        if grades[gradeOrder[i]] > 0 {
+            fmt.Printf("Grade %s: %d students\n", gradeOrder[i], grades[gradeOrder[i]])
+        }
+    }
 	// TODO: Найдите и выведите студента с самым высоким ID
-	
+    maxID := student[names[0]].ID
+    maxIDname := names[0]
+    for count := 0; count < len(names); count++ {
+        if student[names[count]].ID > maxID {
+            maxID = student[names[count]].ID
+            maxIDname = names[count]
+        }
+    }
+    fmt.Printf("Highest ID: %s (%d)\n", maxIDname, maxID)
 	// TODO: Выведите общее количество студентов
+    fmt.Printf("Total students: %d\n", numStudents)
 }
