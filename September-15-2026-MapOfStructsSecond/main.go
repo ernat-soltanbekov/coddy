@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strings"
 	"strconv"
+	"sort"
 )
 
 func main() {
@@ -25,7 +26,15 @@ func main() {
 	// TODO: Создайте карту (map) для хранения студентов (имя как ключ, структура Student как значение)
 	student := map[string]Student{}
 	// TODO: Разберите данные о студентах и заполните карту
-	
+	dividedStudentData := strings.Split(studentData, ",")
+	for i := 0; i < len(dividedStudentData); i++ {
+		doubleDividedStudentData := strings.Split(dividedStudentData[i], ":")
+	}
+	numberID, err := stconv.Atoi(doubleDividedStudentData[1])
+	if err != nil {
+		fmt.Printf("Invalid ID: %v\n", err)
+		return
+	}
 	// TODO: Выведите всех студентов в алфавитном порядке по имени
 	
 	// TODO: Рассчитайте и выведите статистику оценок
