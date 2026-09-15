@@ -29,11 +29,11 @@ func main() {
 	dividedStudentData := strings.Split(studentData, ",")
 	for i := 0; i < len(dividedStudentData); i++ {
 		doubleDividedStudentData := strings.Split(dividedStudentData[i], ":")
-	}
-	numberID, err := stconv.Atoi(doubleDividedStudentData[1])
-	if err != nil {
-		fmt.Printf("Invalid ID: %v\n", err)
-		return
+        numberID, err := strconv.Atoi(doubleDividedStudentData[1])
+	    if err != nil {
+	    	fmt.Printf("Invalid ID: %v\n", err)
+	    	return
+	    }
 	}
 	// TODO: Выведите всех студентов в алфавитном порядке по имени
 	
