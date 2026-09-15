@@ -12,7 +12,7 @@ func main() {
 	var studentData string
 	fmt.Scanln(&numStudentsStr)
 	fmt.Scanln(&studentData)
-	studentData, err = strconv.Atoi(numStudentsStr)
+	numbers, err = strconv.Atoi(numStudentsStr)
 	if err != nil {
 		fmt.Printf("Invalid number: %v", err)
 		return
