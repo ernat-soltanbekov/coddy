@@ -5,6 +5,7 @@ import (
 	"strings"
 	"strconv"
 	"sort"
+    "maps"
 )
 
 func main() {
@@ -34,9 +35,12 @@ func main() {
 	    	fmt.Printf("Invalid ID: %v\n", err)
 	    	return
 	    }
+        students := Student{numberID, doubleDividedStudentData[2]}
+        student[doubleDividedStudentData[0]] = students
 	}
 	// TODO: Выведите всех студентов в алфавитном порядке по имени
-	
+	sorted := maps.Keys(student)
+    sort.Strings(sorted)
 	// TODO: Рассчитайте и выведите статистику оценок
 	
 	// TODO: Найдите и выведите студента с самым высоким ID
