@@ -45,7 +45,10 @@ func main() {
         fmt.Printf("%s: ID %d, Grade %s\n", sorted[print], student[sorted[print]].ID, student[sorted[print]].Grade)
     }
 	// TODO: Рассчитайте и выведите статистику оценок
-	
+    gradeScore := map[string]int{}
+	for gradeCount := 0; gradeCount < len(sorted); gradeCount++ {
+        gradeScore[student[sorted[gradeCount]].Grade]++ 
+    }
 	// TODO: Найдите и выведите студента с самым высоким ID
 	
 	// TODO: Выведите общее количество студентов
