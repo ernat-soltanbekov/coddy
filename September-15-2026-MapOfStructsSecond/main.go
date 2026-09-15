@@ -49,6 +49,12 @@ func main() {
 	for gradeCount := 0; gradeCount < len(sorted); gradeCount++ {
         gradeScore[student[sorted[gradeCount]].Grade]++ 
     }
+    gradeAlpha := []string{"A", "B", "C", "D", "F"}
+    for count := 0; count < len(gradeAlpha); count++ {
+        if gradeScore[gradeAlpha[count]] > 0 {
+            fmt.Printf("Grade %s: %d students\n", gradeAlpha[count], gradeScore[gradeAlpha[count]])
+        }
+    }
 	// TODO: Найдите и выведите студента с самым высоким ID
 	
 	// TODO: Выведите общее количество студентов
