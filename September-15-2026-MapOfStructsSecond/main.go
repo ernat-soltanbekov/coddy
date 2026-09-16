@@ -5,7 +5,6 @@ import (
 	"strings"
 	"strconv"
 	"sort"
-    "maps"
 )
 
 func main() {
@@ -14,7 +13,7 @@ func main() {
 	var studentData string
 	fmt.Scanln(&numStudentsStr)
 	fmt.Scanln(&studentData)
-	numbers, err = strconv.Atoi(numStudentsStr)
+	numbers, err := strconv.Atoi(numStudentsStr)
 	if err != nil {
 		fmt.Printf("Invalid number: %v", err)
 		return
@@ -39,7 +38,10 @@ func main() {
         student[doubleDividedStudentData[0]] = students
 	}
 	// TODO: Выведите всех студентов в алфавитном порядке по имени
-	sorted := maps.Keys(student)
+	sorted := []string{}
+    for key := range student {
+        sorted = append(sorted, key)
+    }
     sort.Strings(sorted)
     for print := 0; print < len(sorted); print++ {
         fmt.Printf("%s: ID %d, Grade %s\n", sorted[print], student[sorted[print]].ID, student[sorted[print]].Grade)
@@ -56,6 +58,16 @@ func main() {
         }
     }
 	// TODO: Найдите и выведите студента с самым высоким ID
-	
+    maxID := student[sorted[0]].ID
+    maxIDname := sorted[0]
+    for i := 0; i < len(sorted); i++ {
+        if student[sorted[i]].ID > maxID {
+            maxID = student[sorted[i]].ID
+            maxIDname = sorted[i]
+        }
+    }
 	// TODO: Выведите общее количество студентов
+    fmt.Printf("Highest ID: %s (%d)\n", maxIDname, maxID)
+	// TODO: Выведите общее количество студентов
+    fmt.Printf("Total students: %d\n", numbers)
 }
