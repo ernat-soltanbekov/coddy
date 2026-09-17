@@ -17,11 +17,14 @@ func main() {
 	fmt.Scanln(&operationsStr)
 	
 	// TODO: Определить структуру Product здесь
-	
+	type Product struct {
+		Price float64
+		Quantity int
+	}
 	// TODO: Создать map для хранения указателей на продукты
-	
+	product := map[string]*Product{}
 	// TODO: Создать slice для поддержания порядка продуктов (чтобы обеспечить согласованный вывод)
-	
+	sliceOrder := []string{}
 	// TODO: Разобрать данные о продуктах и заполнить map
 	// Не забудьте:
 	// - Разделить productDataStr по запятым, чтобы получить отдельные записи
