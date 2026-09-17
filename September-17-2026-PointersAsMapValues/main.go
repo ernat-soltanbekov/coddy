@@ -26,6 +26,15 @@ func main() {
 	// TODO: Создать slice для поддержания порядка продуктов (чтобы обеспечить согласованный вывод)
 	sliceOrder := []string{}
 	// TODO: Разобрать данные о продуктах и заполнить map
+	productData := strings.Split(productDataStr, ",")
+	for i := 0; i < len(productData); i++ {
+		productDescribe := strings.Split(productData[i], ":")
+		price, err := strconv.ParseFloat(productDescribe[1], 64)
+		if err != nil {
+			fmt.Printf("Invalid float: %v\n", err)
+			return
+		}
+	}
 	// Не забудьте:
 	// - Разделить productDataStr по запятым, чтобы получить отдельные записи
 	// - Для каждой записи разделить по двоеточиям, чтобы получить name, price, quantity
