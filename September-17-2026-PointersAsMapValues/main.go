@@ -40,6 +40,7 @@ func main() {
 			return
 		}
 		dataStructure := Product{price, quantity}
+		product[productDescribe[0]] = &dataStructure
 	}
 	// Не забудьте:
 	// - Разделить productDataStr по запятым, чтобы получить отдельные записи
