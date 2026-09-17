@@ -31,7 +31,12 @@ func main() {
 		productDescribe := strings.Split(productData[i], ":")
 		price, err := strconv.ParseFloat(productDescribe[1], 64)
 		if err != nil {
-			fmt.Printf("Invalid float: %v\n", err)
+			fmt.Printf("Invalid price: %v\n", err)
+			return
+		}
+		quantity, err := strconv.Atoi(productDescribe[2])
+		if err != nil {
+			fmt.Printf("Invalid quantity: %v\n", err)
 			return
 		}
 	}
