@@ -39,6 +39,7 @@ func main() {
 			fmt.Printf("Invalid quantity: %v\n", err)
 			return
 		}
+		dataStructure := Product{price, quantity}
 	}
 	// Не забудьте:
 	// - Разделить productDataStr по запятым, чтобы получить отдельные записи
@@ -46,7 +47,6 @@ func main() {
 	// - Преобразовать строки price и quantity в соответствующие типы
 	// - Сохранить указатель на структуру Product в map
 	// - Добавить имя продукта в order slice
-	
 	// TODO: Display initial inventory
 	// Использовать order slice для последовательного перебора продуктов
 	// Формат: "[name]: $[price] (Stock: [quantity])"
