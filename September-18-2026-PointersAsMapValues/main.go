@@ -73,6 +73,14 @@ func main() {
 		if operDescribe[0] == "price" {
             product[operDescribe[1]].Price = opername
         }
+        if operDescribe[0] == "quantity" {
+            quantity, err := strconv.Atoi(operDescribe[2])
+            if err != nil {
+			    fmt.Printf("Invalid quantity: %v\n", err)
+			    return
+		    }
+            product[operDescribe[1]].Quantity = quantity
+        }
 	}
 	// Не забудьте:
 	// - Разделить operationsStr по запятым, чтобы получить отдельные операции
