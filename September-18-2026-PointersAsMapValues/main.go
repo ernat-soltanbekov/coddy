@@ -49,7 +49,14 @@ func main() {
 	// - Преобразовать строки price и quantity в соответствующие типы
 	// - Сохранить указатель на структуру Product в map
 	// - Добавить имя продукта в order slice
+
 	// TODO: Display initial inventory
+    for i := 0; i < len(sliceOrder); i++ {
+        displayOrder := sliceOrder[i]
+        price := product[displayOrder].Price
+        quantity := product[displayOrder].Quantity
+        fmt.Printf("%s: $%.2f (Stock: %d)\n", displayOrder, price, quantity)
+    }
 	// Использовать order slice для последовательного перебора продуктов
 	// Формат: "[name]: $[price] (Stock: [quantity])"
 	
