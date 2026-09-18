@@ -71,7 +71,7 @@ func main() {
 			return
 		}
 		if operDescribe[0] == "price" {
-
+            product[operDescribe[1]].Price = opername
         }
 	}
 	// Не забудьте:
