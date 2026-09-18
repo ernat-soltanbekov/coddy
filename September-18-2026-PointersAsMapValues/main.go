@@ -52,6 +52,7 @@ func main() {
 
 	// TODO: Display initial inventory
     for i := 0; i < len(sliceOrder); i++ {
+        fmt.Printf("Initial Inventory:\n")
         displayOrder := sliceOrder[i]
         price := product[displayOrder].Price
         quantity := product[displayOrder].Quantity
@@ -61,6 +62,18 @@ func main() {
 	// Формат: "[name]: $[price] (Stock: [quantity])"
 	
 	// TODO: Разобрать и применить операции обновления
+    operation := strings.Split(operationsStr, ",")
+	for i := 0; i < len(operation); i++ {
+		operDescribe := strings.Split(operation[i], ":")
+		opername, err := strconv.ParseFloat(operDescribe[2], 64)
+		if err != nil {
+			fmt.Printf("Invalid price: %v\n", err)
+			return
+		}
+		if operDescribe[0] == "price" {
+
+        }
+	}
 	// Не забудьте:
 	// - Разделить operationsStr по запятым, чтобы получить отдельные операции
 	// - Для каждой операции разделить по двоеточиям, чтобы получить type, name, value
