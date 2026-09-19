@@ -41,7 +41,7 @@ func main() {
 		}
 		dataStructure := Product{price, quantity}
 		product[productDescribe[0]] = &dataStructure
-        sliceOrder = append(sliceOrder, product[productDescribe[0]])
+        sliceOrder = append(sliceOrder, productDescribe[0])
 	}
 	// Не забудьте:
 	// - Разделить productDataStr по запятым, чтобы получить отдельные записи
@@ -51,8 +51,8 @@ func main() {
 	// - Добавить имя продукта в order slice
 
 	// TODO: Display initial inventory
+    fmt.Printf("Initial Inventory:\n")
     for i := 0; i < len(sliceOrder); i++ {
-        fmt.Printf("Initial Inventory:\n")
         displayOrder := sliceOrder[i]
         price := product[displayOrder].Price
         quantity := product[displayOrder].Quantity
@@ -65,12 +65,13 @@ func main() {
     operation := strings.Split(operationsStr, ",")
 	for i := 0; i < len(operation); i++ {
 		operDescribe := strings.Split(operation[i], ":")
-		opername, err := strconv.ParseFloat(operDescribe[2], 64)
-		if err != nil {
-			fmt.Printf("Invalid price: %v\n", err)
-			return
-		}
 		if operDescribe[0] == "price" {
+		    opername, err := strconv.ParseFloat(operDescribe[2], 64)
+                if err != nil {
+			    fmt.Printf("Invalid price: %v\n", err)
+			    return
+		    }
+            fmt.Printf("Updated %s: price changed to %.2f\n", operDescribe[1], opername)
             product[operDescribe[1]].Price = opername
         }
         if operDescribe[0] == "quantity" {
@@ -80,6 +81,7 @@ func main() {
 			    return
 		    }
             product[operDescribe[1]].Quantity = quantity
+            fmt.Printf("Updated %s: quantity changed to %d\n", operDescribe[1], quantity)
         }
 	}
 	// Не забудьте:
@@ -91,7 +93,16 @@ func main() {
 	// TODO: Display updated inventory
 	// Снова используйте срез order для согласованного вывода
 	// Вычисляйте общую стоимость во время отображения
-	
+    var total float64
+    fmt.Printf("Updated Inventory:\n")
+    for i := 0; i < len(sliceOrder); i++ {
+        displayOrder := sliceOrder[i]
+        price := product[displayOrder].Price
+        quantity := product[displayOrder].Quantity
+        fmt.Printf("%s: $%.2f (Stock: %d)\n", displayOrder, price, quantity)
+        total += price * float64(quantity)
+    }
 	// TODO: Calculate and display total inventory value
 	// Format: "Total Inventory Value: $[total_value]"
+    fmt.Printf("Total Inventory Value: $%.2f\n", total)
 }
