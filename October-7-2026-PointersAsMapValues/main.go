@@ -38,10 +38,7 @@ func main() {
             return
         }
         firstProduct := Product{price, quantity}
+        product[productSecondDivideStr[0]] = &firstProduct
     }
 
 }
-
-
-
-
