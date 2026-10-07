@@ -27,7 +27,7 @@ func main() {
     productDividedStr := strings.Split(productDataStr, ",")
     for i := 0; i < len(productDividedStr); i++ {
         productSecondDivideStr := strings.Split(productDividedStr[i], ":")
-        price, err := stronv.ParseFloat(productSecondDivideStr[1], 64)
+        price, err := strconv.ParseFloat(productSecondDivideStr[1], 64)
         if err != nil {
             fmt.Printf("Invalid float: %v\n", err)
             return
