@@ -36,7 +36,8 @@ func main() {
         if err != nil {
             fmt.Printf("Invalid integer: %v\n", err)
             return
-        } 
+        }
+        firstProduct := Product{price, quantity}
     }
 
 }
